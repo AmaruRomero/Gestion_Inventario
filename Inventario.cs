@@ -46,6 +46,25 @@ namespace Menu_inventario
             
         }
 
+        public void DeleteProduct(string productName)
+        {
+            // Buscar el producto por su nombre
+            Producto producto_a_Eliminar = productos.Find(p => p.Nombre.Equals(productName, StringComparison.OrdinalIgnoreCase));
+
+            if (producto_a_Eliminar != null)
+            {
+                // Si el producto existe
+                productos.Remove(producto_a_Eliminar);
+                Console.WriteLine($"El producto '{producto_a_Eliminar.Nombre}' ha sido eliminado.");
+            }
+            else
+            {
+                // Si no se encuentra el producto
+                Console.WriteLine("Producto no existente.");
+            }
+        }
+
+
 
 
     }
