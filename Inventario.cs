@@ -46,7 +46,7 @@ namespace Menu_inventario
             
         }
 
-        public void DeleteProduct(string productName)
+        public void EliminarProducto(string productName)
         {
             // Buscar el producto por su nombre
             Producto producto_a_Eliminar = productos.Find(p => p.Nombre.Equals(productName, StringComparison.OrdinalIgnoreCase));
@@ -86,6 +86,35 @@ namespace Menu_inventario
                 var contar = productos.Count(p => p.Precio >= rango.Minimo && p.Precio <= rango.Maximo);
                 Console.WriteLine($"Productos en el rango de {rango.Minimo} a {rango.Maximo}: {contar}");
             }
+        }
+
+        public bool Validar_Precio_del_Producto(decimal precio)
+        {
+            if (precio > 0)
+            {
+                return true;
+            }
+            else if (precio < 0)
+            {
+                Console.WriteLine("El precio debe ser un número positivo.");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("El precio ingresado no es válido. Debe ser un número.");
+                return false;
+            }
+        }
+
+        // Método para agregar un producto después de validar sus datos
+        public bool Validar_nombre_del_producto(string nombre)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+            {
+                Console.WriteLine("El nombre del producto no puede estar vacío o contener solo espacios.");
+                return false;
+            }
+            return true;
         }
 
     }
