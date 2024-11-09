@@ -40,10 +40,10 @@ namespace Menu_inventario
             }
             else
             {
-                 // Si no se encuentra el producto, mostramos un mensaje
-                 Console.WriteLine("Producto no existente.");
+                // Si no se encuentra el producto, mostramos un mensaje
+                Console.WriteLine("Producto no existente.");
             }
-            
+
         }
 
         public void EliminarProducto(string productName)
@@ -147,6 +147,14 @@ namespace Menu_inventario
             }
         }
 
+        public void MostrarProductos()
+        {
+            Console.WriteLine("Lista de productos:");
+            foreach (var product in productos)
+            {
+                Console.WriteLine($"Nombre: {product.Nombre}, Precio: {product.Precio}");
+            }
 
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace Menu_inventario
                 Console.WriteLine("4. Eliminar un producto");
                 Console.WriteLine("5. Contar y agrupar productos por precio");
                 Console.WriteLine("6. Generar reporte");
+                Console.WriteLine("7. Ver productos");
                 Console.WriteLine("0. Salir");
                 Console.Write("Seleccione una opción: ");
                 opcion = int.Parse(Console.ReadLine());
@@ -107,6 +108,12 @@ namespace Menu_inventario
                     case 6:
                         {
                             Inventario_de_Productos.GenerarReporte();
+                            break;
+                        }
+                    case 7:
+                        {
+                            Console.WriteLine("Productos disponibles");
+                            Inventario_de_Productos.MostrarProductos();
                             break;
                         }
                     case 0:
