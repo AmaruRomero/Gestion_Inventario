@@ -65,7 +65,28 @@ namespace Menu_inventario
         }
 
 
+        public void Contar_Agrupar_Productos_por_Precio()
+        {
+            var Rangos_de_Precio = new List<(decimal Minimo, decimal Maximo)>
+        {
+            (0, 100),
+            (101, 200),
+            (201, 300),
+            (301, 400),
+            (401, 500),
+            (501, 700),
+            (701, 1000),
+            (1001, 2000),
+            (2001, 5000),
+            (5001, 10000)
+        };
 
+            foreach (var rango in Rangos_de_Precio)
+            {
+                var contar = productos.Count(p => p.Precio >= rango.Minimo && p.Precio <= rango.Maximo);
+                Console.WriteLine($"Productos en el rango de {rango.Minimo} a {rango.Maximo}: {contar}");
+            }
+        }
 
     }
 }

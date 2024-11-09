@@ -34,7 +34,7 @@ namespace Menu_inventario
             Console.WriteLine("Productos filtrados y ordenados por precio");
             foreach (var producto in ProductosFiltrados)
             {
-                Console.WriteLine(producto);
+                producto.MostrarInfo();
             }
 
             // Intentar actualizar el precio de un producto
@@ -53,8 +53,12 @@ namespace Menu_inventario
             {
                 Console.WriteLine("El precio ingresado no es válido.");
             }
+
+            Console.WriteLine("\nConteo de productos por rango de precio:");
+            Inventario_de_Productos.Contar_Agrupar_Productos_por_Precio();
+
         }
 
-    }
+
     }
 }
