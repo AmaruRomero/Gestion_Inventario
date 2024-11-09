@@ -36,6 +36,25 @@ namespace Menu_inventario
             {
                 Console.WriteLine(producto);
             }
+
+            // Intentar actualizar el precio de un producto
+            Console.WriteLine("Ingrese el nombre del producto a actualizar:");
+            string productNombre = Console.ReadLine();
+
+            Console.WriteLine("Ingrese el nuevo precio:");
+            /*decimal.TryParse(Console.ReadLine(), out decimal newPrice  se lee directamente la entrada del usuario y
+            se intenta convertir a un decimal en un solo paso. Si la conversión tiene éxito, se ejecuta el bloque de
+            código donde se actualiza el precio. Si falla, el programa muestra el mensaje de error.*/
+            if (decimal.TryParse(Console.ReadLine(), out decimal newPrecio))
+            {
+                Inventario_de_Productos.ActualizarPrecio(productNombre, newPrecio);
+            }
+            else
+            {
+                Console.WriteLine("El precio ingresado no es válido.");
+            }
         }
+
+    }
     }
 }
