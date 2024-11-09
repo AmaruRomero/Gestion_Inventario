@@ -117,5 +117,36 @@ namespace Menu_inventario
             return true;
         }
 
+        // Método para generar el reporte de productos
+        public void GenerarReporte()
+        {
+            // Cantidad de productos
+            int total_de_Productos = productos.Count;
+
+            // Precio promedio
+            decimal Precio_Promedio = productos.Average(p => p.Precio);
+
+            // Producto con el precio más bajo
+            var Producto_mas_barato = productos.OrderBy(p => p.Precio).FirstOrDefault();
+
+            // Producto con el precio más alto
+            var Producto_mas_caro = productos.OrderByDescending(p => p.Precio).FirstOrDefault();
+
+            Console.WriteLine("---- Reporte de Productos ----");
+            Console.WriteLine($"Cantidad total de productos: {total_de_Productos}");
+            Console.WriteLine($"Precio promedio de los productos: {Precio_Promedio}");
+
+            if (Producto_mas_barato != null)
+            {
+                Console.WriteLine($"Producto con el precio más bajo: {Producto_mas_barato.Nombre} ({Producto_mas_barato.Precio})");
+            }
+
+            if (Producto_mas_caro != null)
+            {
+                Console.WriteLine($"Producto con el precio más alto: {Producto_mas_caro.Nombre} ({Producto_mas_caro.Precio})");
+            }
+        }
+
+
     }
 }

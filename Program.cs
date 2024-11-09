@@ -85,7 +85,7 @@ namespace Menu_inventario
             Inventario_de_Productos.Contar_Agrupar_Productos_por_Precio();
 
 
-
+            Inventario_de_Productos.GenerarReporte();
         }
 
 
